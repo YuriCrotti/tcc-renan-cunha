@@ -23,6 +23,9 @@ from sklearn.linear_model import LassoCV
 from sklearn.model_selection import GridSearchCV
 import time
 import numpy as np
+from sklearn.metrics import cohen_kappa_score
+from sklearn.metrics import confusion_matrix
+import pickle
 
 def get_best_model(model, parameters, data, target):
     """
@@ -192,7 +195,7 @@ start = time.clock()
 score_test_lreg = best_lreg.score(X_test_top, y_test)
 time_test_lreg = (time.clock() - start)
 
-best = best_lda
+best = best_svm
 print("Best parameters set found on development set:")
 print(best.best_params_)
 
